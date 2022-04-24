@@ -1,5 +1,8 @@
 # VSCode
 .vscode/
 
-# Libraries
-include/
+# C++ Libraries
+cpp/include/
+
+# Executable files
+**/*.exe
