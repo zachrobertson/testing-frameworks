@@ -6,3 +6,6 @@ cpp/include/
 
 # Executable files
 **/*.exe
+
+# Build directories
+**/build/

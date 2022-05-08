@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('build gtest') {
+            steps {
+                sh 'cd /cpp/framework/gtest && mkdir build && cd build'
+                sh 'cmake ..'
+                sh 'cmake --build .'
+            }
+        }
+        stage('test gtest') {
+            steps {
+                sh './gtest/build/gtest-all.exe'
+                junit './gtest/reports/**/*.xml'
+            }
+        }
+    }
+}

@@ -1,20 +1,19 @@
 # Overview
 
-This is a repository for testing different unit testing frameworks in a few different languages. The point of this is to explore the differenece between frameworks and what the use cases are for each.
+This is a repository for testing different unit testing frameworks in a few different languages. The point of this is to explore the difference between frameworks and what the use cases are for each.
 
 ## Environment
 
 Just use a linux operating system, it is easier.
 
 - g++ compiler
-    - version: 7.5.0
+  - version: 7.5.0
 
 ## C++
 
 C++ framework comparison.
 
-Install the g++ compiler and gdb:
-  - `sudo apt install g++ build-esential gdb`
+Install the g++ compiler and gdb: `sudo apt install g++ build-esential gdb`
 
 Here is a list of frameworks that are currently implemented:
 
@@ -23,6 +22,7 @@ Here is a list of frameworks that are currently implemented:
 3. Catch2
 
 Other options:
+
 - CppUnit
 - UnitTest++
 
@@ -30,14 +30,14 @@ All of these need to be compatible with the Jenkins xunit plugin, [here](https:/
 
 ### Boost.Test
 
-Install the Boost.Test library:
-  - `sudo apt-get install libboost-test-dev`
+Install the Boost.Test library: `sudo apt-get install libboost-test-dev`
 
 There are 4 different variants that can be used:
-  - Static library variant
-  - Dynamic library variant
-  - single-header variant
-  - external test runner variant
+
+- Static library variant
+- Dynamic library variant
+- single-header variant
+- external test runner variant
 
 Test runners:
 
@@ -52,13 +52,11 @@ Test runners:
 
 #### Boost.Test - Pros
 
-
 #### Boost.Test - Con
 
 - Only for unit testing, there may be other Boost modules for other types
     of testing
 - Hard to use on Windows and Mac
-
 
 ### Google Test
 
@@ -93,7 +91,7 @@ The documentation seems incomplete for v3 and it is not a good idea to use v2 if
 
 #### Catch2 - Pros
 
-- None right now 
+- None right now
 
 #### Catch2 - Cons
 
