@@ -2,4 +2,4 @@
 
 ## Environment
 
-- Git, GCC, Cmake, Make, Boost.Test
+Before you can start developing/running the tests you need to setup your environment with the correct software.

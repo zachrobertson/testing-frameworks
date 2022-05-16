@@ -13,7 +13,8 @@ fi
 
 echo "cloning boost.test, GoogleTest and UnitTest++ from github if they do not already exist"
 cd lib
-if [ $(grep -a googletest | ls) && echo True || echo False]
+if [ ! -d "./googletest" ]
 then
+    echo "googletest directory does not exist, cloning from GitHub"
     git clone https://github.com/google/googletest.git
 fi
