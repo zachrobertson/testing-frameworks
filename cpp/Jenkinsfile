@@ -8,7 +8,7 @@ pipeline {
                 sh 'cmake --build build --target all'
             }
         }
-        stage('run boost.test') {
+        stage('run Boost.Test') {
             stage {
                 sh './cpp/build/frameworks/boost.test/Boost.Test'
             }
