@@ -9,3 +9,6 @@ cpp/lib/
 
 # Executable files
 **/*.exe
+
+# Build directories
+**/build/
