@@ -1,17 +1,31 @@
 pipeline {
     agent any
     stages {
-        stage('build gtest') {
+        stage('cmake && build') {
             steps {
-                sh 'cd /cpp/framework/gtest && mkdir build && cd build'
-                sh 'cmake ..'
-                sh 'cmake --build .'
+                sh 'cd /cpp'
+                sh 'cmake -S . -B build'
+                sh 'cmake --build build --target all'
             }
         }
-        stage('test gtest') {
+        stage('run boost.test') {
+            stage {
+                sh './cpp/build/frameworks/boost.test/Boost.Test'
+            }
+        }
+        stage('run Catch2') {
+            stage {
+                sh './cpp/build/frameworks/catch2/Catch2Test'
+            }
+        }
+        stage('run googletest') {
             steps {
-                sh './gtest/build/gtest-all.exe'
-                junit './gtest/reports/**/*.xml'
+                sh './cpp/build/frameworks/googletest/GoogleTest'
+            }
+        }
+        stage('run unittest++') {
+            steps {
+                sh './cpp/build/frameworks/unittest++/UnitTestPP'
             }
         }
     }

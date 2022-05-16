@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(This Boost.Test)
+set(This UnitTestPP)
 
 set(Sources
-    boost.test.cpp
+    unittest++.cpp
 )
 
 add_executable(${This} ${Sources})
-target_link_libraries(
-    ${This}
-    ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+target_link_libraries(${This} PUBLIC
+    UnitTest++
     TestingFrameworkComparison
 )
 

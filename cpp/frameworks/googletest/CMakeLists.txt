@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(This Boost.Test)
+set(This GoogleTest)
 
 set(Sources
-    boost.test.cpp
+    googletest.cpp
 )
 
 add_executable(${This} ${Sources})
-target_link_libraries(
-    ${This}
-    ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
+target_link_libraries(${This} PUBLIC
+    gtest_main
     TestingFrameworkComparison
 )
 
