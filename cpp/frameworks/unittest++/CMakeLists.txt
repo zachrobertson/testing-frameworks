@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(This Catch2Test)
+set(This UnitTestPP)
 
 set(Sources
-    catch2.cpp
+    unittest++.cpp
 )
 
 add_executable(${This} ${Sources})
+target_link_libraries(${This} PUBLIC
+    UnitTest++
+    TestingFrameworkComparison
+)
 
 add_test(
     NAME ${This}

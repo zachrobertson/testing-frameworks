@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    stages {
+        stage('cmake && build') {
+            steps {
+                sh 'cd /cpp'
+                sh 'cmake -S . -B build'
+                sh 'cmake --build build --target all'
+            }
+        }
+        stage('run boost.test') {
+            stage {
+                sh './cpp/build/frameworks/boost.test/Boost.Test'
+            }
+        }
+        stage('run Catch2') {
+            stage {
+                sh './cpp/build/frameworks/catch2/Catch2Test'
+            }
+        }
+        stage('run googletest') {
+            steps {
+                sh './cpp/build/frameworks/googletest/GoogleTest'
+            }
+        }
+        stage('run unittest++') {
+            steps {
+                sh './cpp/build/frameworks/unittest++/UnitTestPP'
+            }
+        }
+    }
+}

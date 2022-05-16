@@ -2,7 +2,10 @@
 .vscode/
 
 # C++ Libraries
-cpp/include/
+cpp/lib/
+
+# CMake Build directories
+**/build/
 
 # Executable files
 **/*.exe
