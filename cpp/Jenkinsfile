@@ -8,7 +8,7 @@ pipeline {
         }
         stage('run Boost.Test') {
             steps {
-                sh './cpp/build/frameworks/boost.test/Boost.Test --log_format=XML --log_sink=./Boost.Test.xml --log_level=all --report_level=no'
+                sh './cpp/build/frameworks/boost.test/Boost.Test --log_format=XML --log_sink=./Boost.Test.xml --log_level=all --report_level=no --result_code=no'
                 junit './Boost.Test.xml'
             }
         }
