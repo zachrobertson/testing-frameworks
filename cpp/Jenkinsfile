@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('cmake && build') {
             steps {
-                sh 'cd /cpp'
+                sh 'cd cpp'
                 sh 'cmake -S . -B build'
                 sh 'cmake --build build --target all'
             }
