@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Setup') {
-            steps {
-                sh 'cd cpp && mkdir lib'
-                sh 'cd cpp/lib && git clone https://github.com/google/googletest.git'
-                sh 'cd cpp/lib && git clone https://github.com/unittest-cpp/unittest-cpp.git'
-            }
-        }
         stage('cmake && build') {
             steps {
                 sh 'cd cpp && cmake -S . -B build && cmake --build build --target all'
