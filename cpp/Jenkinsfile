@@ -6,17 +6,17 @@ pipeline {
                 sh 'cd cpp && cmake -S . -B build && cmake --build build --target all'
             }
         }
-        stage('run Boost.Test') {
+        stage('Run Boost.Test') {
             steps {
                 sh './cpp/build/frameworks/boost.test/Boost.Test --log_format=XML --log_sink=./cpp/build/frameworks/boost.test/Boost.Test.xml --log_level=all --report_level=no --result_code=no'
-                sh 'ls'
-                sh 'ls ./cpp/build/frameworks/boost.test'
-                step([
-                    $class: 'XUnitBuilder', 
-                    thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
-                    tools: [[$class: 'XUnitDotNetTestType', pattern: './cpp/build/frameworks/boost.test/*.xml']]
-                ])
             }
+        }
+        stage('Boost.Test xUnit reporting') {
+            step([
+                $class: 'XUnitBuilder', 
+                thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
+                tools: [[$class: 'XUnitDotNetTestType', pattern: './cpp/build/frameworks/boost.test/*.xml']]
+            ])
         }
         stage('remove build directory') {
             steps {
