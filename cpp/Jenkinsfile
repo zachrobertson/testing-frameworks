@@ -40,6 +40,7 @@ pipeline {
                 tools: [
                     BoostTest(pattern: '**/build/frameworks/boost.test/Boost.Test.xml')]
             )
+            cleanWs()
         }
     }
 }
