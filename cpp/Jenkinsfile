@@ -9,12 +9,12 @@ pipeline {
             }
         }
         stage('run Boost.Test') {
-            stage {
+            steps {
                 sh './cpp/build/frameworks/boost.test/Boost.Test'
             }
         }
         stage('run Catch2') {
-            stage {
+            steps {
                 sh './cpp/build/frameworks/catch2/Catch2Test'
             }
         }
