@@ -11,7 +11,8 @@ pipeline {
                 sh './cpp/build/frameworks/boost.test/Boost.Test --log_format=XML --log_sink=./cpp/build/frameworks/boost.test/Boost.Test.xml --log_level=all --report_level=no --result_code=no'
                 sh 'ls'
                 sh 'ls ./cpp/build/frameworks/boost.test'
-                xunit '**/build/frameworks/boost.test/*.xml'
+                step(
+                    [$class: 'XUnitBuilder', thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']], tools: [[$class: 'XUnitDotNetTestType', pattern: './cpp/build/frameworks/boost.test/*.xml']]])
             }
         }
         stage('remove build directory') {
