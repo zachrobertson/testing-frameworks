@@ -12,21 +12,21 @@ pipeline {
                 junit './Boost.Test.xml'
             }
         }
-        stage('run Catch2') {
-            steps {
-                sh './cpp/build/frameworks/catch2/Catch2Test'
-            }
-        }
-        stage('run googletest') {
-            steps {
-                sh './cpp/build/frameworks/googletest/GoogleTest --gtest_output=xml:./GoogleTest.xml'
-                junit './cpp/build/frameworks/googletest/GoogleTest.xml'
-            }
-        }
-        stage('run unittest++') {
-            steps {
-                sh './cpp/build/frameworks/unittest++/UnitTestPP'
-            }
-        }
+        // stage('run Catch2') {
+        //     steps {
+        //         sh './cpp/build/frameworks/catch2/Catch2Test'
+        //     }
+        // }
+        // stage('run googletest') {
+        //     steps {
+        //         sh './cpp/build/frameworks/googletest/GoogleTest --gtest_output=xml:./GoogleTest.xml'
+        //         junit './cpp/build/frameworks/googletest/GoogleTest.xml'
+        //     }
+        // }
+        // stage('run unittest++') {
+        //     steps {
+        //         sh './cpp/build/frameworks/unittest++/UnitTestPP'
+        //     }
+        // }
     }
 }
