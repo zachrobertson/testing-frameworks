@@ -8,7 +8,8 @@ pipeline {
         }
         stage('run Boost.Test') {
             steps {
-                sh './cpp/build/frameworks/boost.test/Boost.Test'
+                sh './cpp/build/frameworks/boost.test/Boost.Test --log_format=XML --log_sink=./Boost.Test.xml --log_level=all --report_level=no'
+                junit './Boost.Test.xml'
             }
         }
         stage('run Catch2') {
