@@ -3,13 +3,8 @@ pipeline {
     stages {
         stage('Clone dependencies') {
             steps {
-                dir('cpp/lib') {
-                    git branch: 'main',
-                        url: 'https://github.com/google/googletest'
-                    git branch: 'master',
-                        url: 'https://github.com/unittest-cpp/unittest-cpp.git'
-                    sh 'ls'
-                }
+                sh 'cd cpp/lib && git clone https://github.com/google/googletest.git'
+                sh 'cd cpp/lib && git clone https://github.com/unittest-cpp/unittest-cpp.git'
             }
         }
         stage('cmake && build') {
