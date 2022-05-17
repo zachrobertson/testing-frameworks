@@ -12,11 +12,14 @@ pipeline {
             }
         }
         stage('Boost.Test xUnit reporting') {
-            step([
-                $class: 'XUnitBuilder', 
-                thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
-                tools: [[$class: 'XUnitDotNetTestType', pattern: './cpp/build/frameworks/boost.test/*.xml']]
-            ])
+            steps {
+                step([
+                    $class: 'XUnitBuilder', 
+                    thresholds: [[$class: 'FailedThreshold', unstableThreshold: '1']],
+                    tools: [[$class: 'XUnitDotNetTestType', pattern: './cpp/build/frameworks/boost.test/*.xml']]
+                ])
+            }
+            
         }
         stage('remove build directory') {
             steps {
