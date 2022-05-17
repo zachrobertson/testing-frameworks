@@ -3,12 +3,17 @@ pipeline {
     stages {
         stage('cmake && build') {
             steps {
-                sh 'cd cpp && cmake -S . -B build && cmake --build build --target all'
+                dir('cpp') {
+                    sh 'cmake -S . -B build'
+                    sh 'cmake --build build --target all'
+                }
             }
         }
         stage('Run Boost.Test') {
             steps {
-                sh './cpp/build/frameworks/boost.test/Boost.Test --log_format=XML --log_sink=./cpp/build/frameworks/boost.test/Boost.Test.xml --log_level=all --report_level=no --result_code=no'
+                dir('cpp/build/frameworks/boost.test') {
+                    sh './Boost.Test --log_format=XML --log_sink=./Boost.Test.xml --log_level=all --report_level=no --result_code=no'
+                }
             }
         }
         // stage('run Catch2') {
