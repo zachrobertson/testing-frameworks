@@ -25,7 +25,8 @@ pipeline {
         }
         stage('run googletest') {
             steps {
-                sh './cpp/build/frameworks/googletest/GoogleTest'
+                sh './cpp/build/frameworks/googletest/GoogleTest --gtest_output=xml:./GoogleTest.xml'
+                junit './cpp/build/frameworks/googletest/GoogleTest.xml'
             }
         }
         stage('run unittest++') {
