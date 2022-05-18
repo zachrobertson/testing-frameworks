@@ -1,5 +1,4 @@
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include <catch2/catch_test_macros.hpp>
 #include "../../src/index.cpp"
 
 TEST_CASE("HalfPlusOne", "[half_plus_one]"){

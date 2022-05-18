@@ -18,4 +18,5 @@ add_subdirectory(frameworks/unittest++)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 add_subdirectory(frameworks/boost.test)
 
+find_package(Catch2 3 REQUIRED)
 add_subdirectory(frameworks/catch2)

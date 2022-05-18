@@ -5,6 +5,11 @@ set(Sources
 )
 
 add_executable(${This} ${Sources})
+target_link_libraries(
+    ${This}
+    Catch2::Catch2WithMain
+    TestingFrameworkComparison
+)
 
 add_test(
     NAME ${This}
