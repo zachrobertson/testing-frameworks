@@ -23,21 +23,21 @@ pipeline {
         stage('Run Boost.Test') {
             steps {
                 dir('cpp/build/frameworks/boost.test') {
-                    sh './Boost.Test --log_format=XML --log_sink=./Boost.Test.xml --log_level=all --report_level=no --result_code=no'
+                    sh './Boost.Test --log_format=XML --log_sink=./Boost.Test.xml --log_level=all --report_level=no || true'
                 }
             }
         }
         stage('Run Catch2') {
             steps {
                 dir('cpp/build/frameworks/catch2') {
-                    sh './Catch2Test -s -r junit -o Catch2Test.xml'
+                    sh './Catch2Test -s -r junit -o Catch2Test.xml || true'
                 }
             }
         }
         stage('run googletest') {
             steps {
                 dir('cpp/build/frameworks/googletest') {
-                    sh './GoogleTest --gtest_output=xml:GoogleTest.xml'
+                    sh './GoogleTest --gtest_output=xml:GoogleTest.xml || true'
                 }
             }
         }
