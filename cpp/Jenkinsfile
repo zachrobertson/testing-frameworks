@@ -54,12 +54,9 @@ pipeline {
                 tools: [
                     BoostTest(pattern: '**/build/frameworks/boost.test/Boost.Test.xml'),
                     // JUnit(pattern: '**/build/frameworks/catch2/Catch2Test.xml'), // Ignore Catch2 for now, they are invalid xml
-                    JUnit(pattern: '**/build/frameworks/googletest/GoogleTest.xml'),
+                    GoogleTest(pattern: '**/build/frameworks/googletest/GoogleTest.xml'),
                 ]
             )
-            cleanWs()
-            sh 'rm -rf cpp/lib'
-            sh 'rm -rf cpp/build'
         }
     }
 }
