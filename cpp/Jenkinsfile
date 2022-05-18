@@ -54,6 +54,8 @@ pipeline {
                 ]
             )
             cleanWs()
+            sh 'rm -rf cpp/lib'
+            sh 'rm -rf cpp/build'
         }
     }
 }
