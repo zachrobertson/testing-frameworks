@@ -8,8 +8,8 @@ pipeline {
                     sh 'git clone https://github.com/unittest-cpp/unittest-cpp.git'
                     sh 'git clone https://github.com/catchorg/Catch2.git'
                     dir('Catch2') {
-                        sh 'cmake -Bbuild -H. -DBUILD_TESTING=OFF'
-                        sh 'sudo cmake --build build/ --target install'
+                        sh 'cmake -DCMAKE_INSTALL_PREFIX=./include -Bbuild -H. -DBUILD_TESTING=OFF'
+                        sh 'cmake --build build/ --target install'
                     }
                 }
             }
