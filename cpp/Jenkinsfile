@@ -27,7 +27,7 @@ pipeline {
         stage('Run Catch2') {
             steps {
                 dir('cpp/build/frameworks/catch2') {
-                    sh './Catch2Test --reporter junit --out=./Catch2Test.xml'
+                    sh './Catch2Test -s -r junit -o Catch2Test.xml'
                 }
             }
         }
