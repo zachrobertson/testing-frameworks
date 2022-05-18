@@ -34,17 +34,17 @@ pipeline {
                 }
             }
         }
-        stage('run googletest') {
+        stage('Run GoogleTest') {
             steps {
                 dir('cpp/build/frameworks/googletest') {
                     sh './GoogleTest --gtest_output=xml:GoogleTest.xml || true'
                 }
             }
         }
-        stage('run unittest++') {
+        stage('Run UnitTest++') {
             steps {
                 dir('cpp/build/frameworks/unittest++') {
-                    sh './UnitTest++ || true'
+                    sh './UnitTestPP || true'
                 }
             }
         }
