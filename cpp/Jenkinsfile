@@ -48,7 +48,7 @@ pipeline {
             xunit (
                 thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '2') ],
                 tools: [
-                    BoostTest(pattern: '**/build/frameworks/boost.test/Boost.Test.xml')
+                    BoostTest(pattern: '**/build/frameworks/boost.test/Boost.Test.xml'),
                     JUnit(pattern: '**/build/frameworks/catch2/Catch2Test.xml')
                 ]
             )
