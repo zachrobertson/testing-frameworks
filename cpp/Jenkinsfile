@@ -50,7 +50,7 @@ pipeline {
     post {
         always{
             xunit (
-                thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '2') ],
+                thresholds: [ skipped(failureThreshold: '0'), failed(failureThreshold: '8') ],
                 tools: [
                     BoostTest(pattern: '**/build/frameworks/boost.test/Boost.Test.xml'),
                     // JUnit(pattern: '**/build/frameworks/catch2/Catch2Test.xml'), // Ignore Catch2 for now, they are invalid xml
