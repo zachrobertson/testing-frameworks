@@ -24,11 +24,13 @@ pipeline {
                 }
             }
         }
-        // stage('run Catch2') {
-        //     steps {
-        //         sh './cpp/build/frameworks/catch2/Catch2Test'
-        //     }
-        // }
+        stage('Run Catch2') {
+            steps {
+                dir('cpp/build/frameworks/catch2') {
+                    sh './Catch2Test --reporter JUnit::out=./Catch2Test.xml'
+                }
+            }
+        }
         // stage('run googletest') {
         //     steps {
         //         sh './cpp/build/frameworks/googletest/GoogleTest --gtest_output=xml:./GoogleTest.xml'
