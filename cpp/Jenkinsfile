@@ -1,8 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Clone dependencies') {
+        stage('Build dependencies') {
             steps {
+                cleanWs()
+                checkout scm
+                echo "Building ${env.JOB_NAME}"
                 dir('cpp/lib') {
                     sh 'git clone https://github.com/google/googletest.git'
                     sh 'git clone https://github.com/unittest-cpp/unittest-cpp.git'
