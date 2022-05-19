@@ -64,7 +64,7 @@ pipeline {
                 ]
             )
             junit (
-                pattern: '**/build/frameworks/catch2/Catch2Test.xml'
+                testResults: '**/build/frameworks/catch2/Catch2Test.xml'
             )
         }
     }
