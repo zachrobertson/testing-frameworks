@@ -63,9 +63,7 @@ pipeline {
                     GoogleTest(pattern: '**/build/frameworks/googletest/GoogleTest.xml'),
                 ]
             )
-            junit (
-                testResults: '**/build/frameworks/catch2/Catch2Test.xml'
-            )
+            junit testResults: '**/build/frameworks/catch2/Catch2Test.xml'
         }
     }
 }
